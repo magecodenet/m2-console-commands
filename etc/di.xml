@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 MageCode. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="magecode_consolecommands_statistics_refresh" xsi:type="object">MageCode\ConsoleCommands\Console\Command\Statistics\Refresh</item>
+                <item name="magecode_consolecommands_customers_syncByOrders" xsi:type="object">MageCode\ConsoleCommands\Console\Command\Customers\SyncByOrders</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="MageCode\ConsoleCommands\Console\Command\Statistics\Refresh">
+        <arguments>
+            <argument name="reportTypes" xsi:type="array">
+                <item name="sales" xsi:type="string">Magento\Sales\Model\ResourceModel\Report\Order</item>
+                <item name="tax" xsi:type="string">Magento\Tax\Model\ResourceModel\Report\Tax</item>
+                <item name="shipping" xsi:type="string">Magento\Sales\Model\ResourceModel\Report\Shipping</item>
+                <item name="invoiced" xsi:type="string">Magento\Sales\Model\ResourceModel\Report\Invoiced</item>
+                <item name="refunded" xsi:type="string">Magento\Sales\Model\ResourceModel\Report\Refunded</item>
+                <item name="coupons" xsi:type="string">Magento\SalesRule\Model\ResourceModel\Report\Rule</item>
+                <item name="bestsellers" xsi:type="string">Magento\Sales\Model\ResourceModel\Report\Bestsellers</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
